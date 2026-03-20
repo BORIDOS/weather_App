@@ -1,16 +1,23 @@
+DotNetEnv.Env.Load();
+
 var builder = WebApplication.CreateBuilder(args);
 
 var app = builder.Build();
 
-using var client = new HttpClient();
-
 app.MapGet("/weather/data", async () =>
 {
-    var response = await client.GetAsync("https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&timezone=Asia%2FBangkok&forecast_days=3");
+    // 1. สร้าง Browser จำลองขึ้นมา ใช้ using เพื่อให้มันทำลายตัวเองทิ้งเมื่อใช้เสร็จ จะได้ไม่กินเมมโมรี่
+    using var client = new HttpClient();
+    
+    string api = Environment.GetEnvironmentVariable("METRO_WEATHER_API");
 
+    // 2. สั่งให้ไปดึงข้อมูลจาก URL (ใช้ await เพราะต้องรอข้อมูลวิ่งไป-กลับผ่านอินเทอร์เน็ต)
+    var response = await client.GetAsync(api);
+
+    // ถ้ายิงสำเร็จ response.IsSuccessStatusCode จะมีค่าเป็น true
     if (response.IsSuccessStatusCode)
     {
-        return "ยิงสำเร็จ";
+        return await response.Content.ReadAsStringAsync();
     }
 
     return "ยิงไม่สำเร็จ";

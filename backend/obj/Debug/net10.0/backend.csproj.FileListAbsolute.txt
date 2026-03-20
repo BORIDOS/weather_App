@@ -32,3 +32,5 @@ C:\Users\brpdt\Desktop\job\VueAndASP_Learning\Weather\backend\obj\Debug\net10.0\
 C:\Users\brpdt\Desktop\job\VueAndASP_Learning\Weather\backend\obj\Debug\net10.0\backend.genruntimeconfig.cache
 C:\Users\brpdt\Desktop\job\VueAndASP_Learning\Weather\backend\obj\Debug\net10.0\ref\backend.dll
 C:\Users\brpdt\Desktop\job\VueAndASP_Learning\Weather\backend\obj\Debug\net10.0\backend.sourcelink.json
+C:\Users\brpdt\Desktop\job\VueAndASP_Learning\Weather\backend\bin\Debug\net10.0\DotNetEnv.dll
+C:\Users\brpdt\Desktop\job\VueAndASP_Learning\Weather\backend\bin\Debug\net10.0\Sprache.dll
